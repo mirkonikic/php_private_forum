@@ -27,6 +27,7 @@ current:
     - create todo.php, where everyone can post tasks, and you can close them etc
     - refactor the code and make it readable and pretty
     - add file sharing section
+    - add pfp, username, email and checking if the email is cncorp.tech changing
 
 index:
     + form input validity checker: sva polja popunjena? email ima @?
