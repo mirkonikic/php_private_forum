@@ -1,5 +1,5 @@
 /*
-:register, :login, :Create_own_post, :Read_posts, :Update_own_post, :Delete_own_post, :like_posts, :comment, :reply_to_comment
+:register, :login, :Create_own_post, :Read_posts, :Update_own_post, :Delete_own_post, :like_posts, :comment, :reply_to_comment, :approve_comment
 
 */
 
