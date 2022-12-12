@@ -10,7 +10,7 @@ require "static/header.php";
     <p class="text-center w-responsive mx-auto">This web application was created by CN CTO's in order to create easily accessible way to communicate information to the Top Echelon of CN.</p>
     <p class="text-center w-responsive mx-auto">In order to post, you have to register on the main page and than you are all set!</p>
     <p class="text-center w-responsive mx-auto">Your posts will go trough moderation before getting posted and later on you will get an email when they get posted.</p>
-    <p class="text-center w-responsive mx-auto">Only rule is that you follow CN guidelines, Enjoy!.</p>
+    <p class="text-center w-responsive mx-auto">Only rule is that you follow CN guidelines, Enjoy!</p>
 
     </section>
 </div>
