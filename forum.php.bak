@@ -19,7 +19,7 @@ require "static/header.php"
 
     <h2 class="h1-responsive font-weight-bold text-center my-4">Welcome <?php echo "<b>".$_SESSION['username']."</b>"; ?>!</h2>
     <p style="display:none" id="whoami"><?php echo $_SESSION['username']; ?></p>
-    <p class="text-center w-responsive mx-auto mb-5">On CN Forum you are able to ask any question to the CN Chief Officers!</p>
+    <p class="text-center w-responsive mx-auto mb-5">On MN Forum you are free to read a post/threead on any topic you wish!</p>
 
     <div class="row">
         <div class="col-md-1"></div>
@@ -54,12 +54,6 @@ foreach($rows as $row):?>
 </div>
 
 <script type="">
-//PREBACI DA AJAX PRIKUPLJA POSTOVE A NE PHP
-
-
-
-
-
 //calculate days ago for each post
     dates = document.getElementsByClassName("dateposted");
     howmanydayspasseds = document.getElementsByClassName("howmanydayspassed");

@@ -69,7 +69,7 @@ else
 ?>
 <div class="container-fluid" style="">
     <section class="h-100 h-custom gradient-custom-2">
-    <h1 style="padding-top:50px; text-align:center; font-family:fantasy;">CN Forum</h1>
+    <h1 style="padding-top:50px; text-align:center; font-family:fantasy;">MN Forum</h1>
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
@@ -245,6 +245,12 @@ else
 
         return;
     }
+//event listener on every input box, while typing, it checks
+    // username must not be empty
+
+    // password must not be empty
+    // email must not be empty
+    // email must follow mail address rules
 
 </script>
 

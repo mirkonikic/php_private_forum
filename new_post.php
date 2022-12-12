@@ -13,11 +13,11 @@ require "static/header.php";
 require "model/post.php";
 
 # listen to post requests
-if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['submit'])) {
+if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['sbmt'])) {
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    if($_POST['submit'] == 'new_post')
+    if($_POST['sbmt'] == 'new_post')
     {    
         $time = date('Y-m-d H:i:s');
         $author = $_SESSION['user_id'];
@@ -37,18 +37,18 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['submit']
     <section class="mb-4">
 
     <h2 class="h1-responsive font-weight-bold text-center my-4">Add new post</h2>
-    <p class="text-center w-responsive mx-auto">Hi <?php echo "<b>".$_SESSION['username']."</b>"; ?>! On MN Forum you are free to create a post/thread on any topic you wish!</p>
-    <p onclick="ajaxGetNumOfPosts()" class="text-center w-responsive mx-auto mb-5"><i id="getnumposts">click me!</i></p>
+    <p class="text-center w-responsive mx-auto">Hi <?php echo "<b>".$_SESSION['username']."</b>"; ?>! On CN Forum you are free to create a post/thread on any topic. The CN Chief Officers will respond in no time!</p>
+    <p onclick="ajaxGetNumOfPosts()" class="text-center w-responsive mx-auto"><i id="getnumposts">click me!</i></p>
 
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10 mb-md-0 mb-5">
-            <form action="" method="POST">
+            <form action="" method="POST" name="post" id="post">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <label for="name" class="">Post title:</label>
-                            <input type="text" id="name" name="title" class="form-control">
+                            <label for="name" class="">Post title: <i><span style="color:red" id="error_title_label"></span></i></label>
+                            <input type="text" id="title" onchange="validateContent('post')" name="title" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -56,8 +56,8 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['submit']
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <label for="message">Your message:</label>
-                            <textarea type="text" id="message" name="content" rows="10" class="form-control md-textarea"></textarea>
+                            <label for="message">Your message: <i><span style="color:red" id="error_content_label"></span></i></label>
+                            <textarea type="text" onchange="validateContent('post')" id="content" name="content" rows="10" class="form-control md-textarea"></textarea>
                         </div>
 
                     </div>
@@ -65,7 +65,9 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['submit']
 
                 <div class="text-center text-md-left" style="margin-top:20px">
                     <!-- <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Submit</a> -->
-                    <input type="submit" name="submit" value="new_post">
+                    <!-- <input type="submit" name="submit" value="new_post"> -->
+                    <button type="button" onclick="validatePost()">Post</button>
+                    <input type="text" name="sbmt" value="new_post" style="display:none">
                 </div>
             </form>
         </div>
@@ -118,6 +120,60 @@ function ajaxGetNumOfPosts()
         }
     }
 }
+</script>
+
+<script type="">
+    // OVDE PROVERI FORM VALIDATION
+    function validateContent(str)
+    {
+        if(document.forms[str]['content'].value == ""){
+            document.forms[str]['content'].style.border = "2px dashed red";
+            document.getElementById('error_content_label').innerHTML = ' : fali sadrzaj posta';
+            return false;
+        }
+        else
+        {
+            document.forms[str]['content'].style.border = "";
+            document.getElementById('error_content_label').innerHTML = "";
+            return true;
+        }
+    }
+
+    function validateTitle(str)
+    {
+        if(document.forms[str]['title'].value == ""){
+            document.forms[str]['title'].style.border = "2px dashed red";
+            document.getElementById('error_title_label').innerHTML = ' : fali naslov';
+            return false;
+        }
+        else
+        {
+            document.forms[str]['title'].style.border = "";
+            document.getElementById('error_title_label').innerHTML = "";
+            return true;
+        }
+    }
+
+    function validatePost(){
+        if(validateTitle('post') * validateContent('post'))
+        {
+            console.log('radi');
+            document.getElementById('post').submit();
+        }
+        else
+        {
+            console.log("ne radi");
+        }
+
+        return;
+    }
+//event listener on every input box, while typing, it checks
+    // username must not be empty
+
+    // password must not be empty
+    // email must not be empty
+    // email must follow mail address rules
+
 </script>
 
 <?php require "static/footer.php"; ?>
